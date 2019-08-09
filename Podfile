@@ -6,11 +6,10 @@ target 'FindYours' do
   use_frameworks!
 
 pod 'Firebase/Core'
-  pod 'Firebase/Storage'
+  pod 'Firebase/Core'
+  pod 'Firebase/Firestore'
   pod 'Firebase/Auth'
-  pod 'Firebase/Database'
-  pod 'JSQMessagesViewController'
-
+  pod 'NVActivityIndicatorView'
   # Pods for FindYours
 
 end

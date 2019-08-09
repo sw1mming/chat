@@ -7,13 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DB002B4222F9FB40007ED1CF /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB002B4122F9FB40007ED1CF /* DatabaseManager.swift */; };
+		DB002B4722FA066B007ED1CF /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB002B4622FA066B007ED1CF /* TabBarController.swift */; };
+		DB002B4B22FA070A007ED1CF /* UsersListBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB002B4A22FA070A007ED1CF /* UsersListBuilder.swift */; };
+		DB002B4F22FA0B9C007ED1CF /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB002B4E22FA0B9C007ED1CF /* UserModel.swift */; };
+		DB002B5222FA1D88007ED1CF /* TableView+RegisterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB002B5122FA1D88007ED1CF /* TableView+RegisterCell.swift */; };
+		DB002B5422FA20BB007ED1CF /* UIViewController+ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB002B5322FA20BB007ED1CF /* UIViewController+ActivityIndicator.swift */; };
 		DB0065A122CD2B620015C69A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0065A022CD2B620015C69A /* AppDelegate.swift */; };
 		DB0065A322CD2B620015C69A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0065A222CD2B620015C69A /* ViewController.swift */; };
 		DB0065A622CD2B620015C69A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB0065A422CD2B620015C69A /* Main.storyboard */; };
 		DB0065A822CD2B640015C69A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB0065A722CD2B640015C69A /* Assets.xcassets */; };
 		DB0065AB22CD2B640015C69A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB0065A922CD2B640015C69A /* LaunchScreen.storyboard */; };
-		DB045BDC22CE1BD90098811D /* ChatsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB045BDB22CE1BD90098811D /* ChatsListViewController.swift */; };
-		DB045BDF22CE1C4D0098811D /* ChatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB045BDE22CE1C4D0098811D /* ChatCell.swift */; };
+		DB045BDC22CE1BD90098811D /* UsersListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB045BDB22CE1BD90098811D /* UsersListViewController.swift */; };
+		DB045BDF22CE1C4D0098811D /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB045BDE22CE1C4D0098811D /* UserCell.swift */; };
+		DB04F3C222FC4D6E00D37316 /* LoginUserWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB04F3C122FC4D6E00D37316 /* LoginUserWorker.swift */; };
+		DB04F3C422FC505800D37316 /* RegisterUserWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB04F3C322FC505800D37316 /* RegisterUserWorker.swift */; };
+		DB0F496E22FD97770032B913 /* CommonError.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0F496D22FD97770032B913 /* CommonError.swift */; };
 		DB0FED6322F21F88006ADD3F /* RegisterBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0FED6222F21F88006ADD3F /* RegisterBuilder.swift */; };
 		DB0FED6522F21F9F006ADD3F /* RegisterPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0FED6422F21F9F006ADD3F /* RegisterPresenter.swift */; };
 		DB0FED6722F21FC0006ADD3F /* RegisterInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0FED6622F21FC0006ADD3F /* RegisterInteractor.swift */; };
@@ -22,6 +31,10 @@
 		DB0FED6D22F22140006ADD3F /* RegisterProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0FED6C22F22140006ADD3F /* RegisterProtocols.swift */; };
 		DB0FED6F22F221B7006ADD3F /* RegisterViewController+Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0FED6E22F221B7006ADD3F /* RegisterViewController+Configuration.swift */; };
 		DB0FED7122F22203006ADD3F /* RegisterFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0FED7022F22203006ADD3F /* RegisterFlow.swift */; };
+		DB10623022FAA7F100A24E5F /* AccountController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB10622F22FAA7F100A24E5F /* AccountController.swift */; };
+		DB10623222FAF18100A24E5F /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB10623122FAF18100A24E5F /* ChatViewController.swift */; };
+		DB10623422FAF1B600A24E5F /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB10623322FAF1B600A24E5F /* ChatView.swift */; };
+		DB10623622FB17B800A24E5F /* MessageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB10623522FB17B800A24E5F /* MessageModel.swift */; };
 		DB2D373522E7814D008AEAAE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DB2D373422E7814D008AEAAE /* GoogleService-Info.plist */; };
 		DB2D373822E78288008AEAAE /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2D373722E78288008AEAAE /* LoginViewController.swift */; };
 		DB2D373D22E78318008AEAAE /* LoginPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2D373C22E78318008AEAAE /* LoginPresenter.swift */; };
@@ -31,8 +44,10 @@
 		DB2D374622E78D53008AEAAE /* LoginViewController+Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2D374522E78D53008AEAAE /* LoginViewController+Configuration.swift */; };
 		DB2D374822E7913F008AEAAE /* LoginProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2D374722E7913F008AEAAE /* LoginProtocols.swift */; };
 		DB2D374A22E79527008AEAAE /* LoginFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2D374922E79527008AEAAE /* LoginFlow.swift */; };
-		DB34EE6822D6341100E140DC /* ChatsListViewController+TableViewDelegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB34EE6722D6341100E140DC /* ChatsListViewController+TableViewDelegates.swift */; };
-		DBC1256822D76D0B0019A1F8 /* ChatCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DBC1256722D76D0B0019A1F8 /* ChatCell.xib */; };
+		DB34EE6822D6341100E140DC /* UsersListViewController+TableViewDelegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB34EE6722D6341100E140DC /* UsersListViewController+TableViewDelegates.swift */; };
+		DBC1256822D76D0B0019A1F8 /* UserCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DBC1256722D76D0B0019A1F8 /* UserCell.xib */; };
+		DBFE4B9322FB4DDB0008305E /* ChatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFE4B9222FB4DDB0008305E /* ChatCell.swift */; };
+		DBFE4B9522FB4E390008305E /* ChatCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DBFE4B9422FB4E390008305E /* ChatCell.xib */; };
 		FB3CFD075968CD349FC7C52D /* Pods_FindYours.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CFC01C4197F5335E6A939ED /* Pods_FindYours.framework */; };
 /* End PBXBuildFile section */
 
@@ -40,6 +55,12 @@
 		3CFC01C4197F5335E6A939ED /* Pods_FindYours.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FindYours.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F3478AFD4AF8405B91D83F9 /* Pods-FindYours.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FindYours.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FindYours/Pods-FindYours.debug.xcconfig"; sourceTree = "<group>"; };
 		60FB78443D97820FCB538FA4 /* Pods-FindYours.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FindYours.release.xcconfig"; path = "Pods/Target Support Files/Pods-FindYours/Pods-FindYours.release.xcconfig"; sourceTree = "<group>"; };
+		DB002B4122F9FB40007ED1CF /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
+		DB002B4622FA066B007ED1CF /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		DB002B4A22FA070A007ED1CF /* UsersListBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersListBuilder.swift; sourceTree = "<group>"; };
+		DB002B4E22FA0B9C007ED1CF /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		DB002B5122FA1D88007ED1CF /* TableView+RegisterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TableView+RegisterCell.swift"; sourceTree = "<group>"; };
+		DB002B5322FA20BB007ED1CF /* UIViewController+ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+ActivityIndicator.swift"; sourceTree = "<group>"; };
 		DB00659D22CD2B620015C69A /* FindYours.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FindYours.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB0065A022CD2B620015C69A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DB0065A222CD2B620015C69A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -47,8 +68,11 @@
 		DB0065A722CD2B640015C69A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DB0065AA22CD2B640015C69A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DB0065AC22CD2B640015C69A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		DB045BDB22CE1BD90098811D /* ChatsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatsListViewController.swift; sourceTree = "<group>"; };
-		DB045BDE22CE1C4D0098811D /* ChatCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatCell.swift; sourceTree = "<group>"; };
+		DB045BDB22CE1BD90098811D /* UsersListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersListViewController.swift; sourceTree = "<group>"; };
+		DB045BDE22CE1C4D0098811D /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
+		DB04F3C122FC4D6E00D37316 /* LoginUserWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUserWorker.swift; sourceTree = "<group>"; };
+		DB04F3C322FC505800D37316 /* RegisterUserWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterUserWorker.swift; sourceTree = "<group>"; };
+		DB0F496D22FD97770032B913 /* CommonError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonError.swift; sourceTree = "<group>"; };
 		DB0FED6222F21F88006ADD3F /* RegisterBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterBuilder.swift; sourceTree = "<group>"; };
 		DB0FED6422F21F9F006ADD3F /* RegisterPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterPresenter.swift; sourceTree = "<group>"; };
 		DB0FED6622F21FC0006ADD3F /* RegisterInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterInteractor.swift; sourceTree = "<group>"; };
@@ -57,6 +81,10 @@
 		DB0FED6C22F22140006ADD3F /* RegisterProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterProtocols.swift; sourceTree = "<group>"; };
 		DB0FED6E22F221B7006ADD3F /* RegisterViewController+Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RegisterViewController+Configuration.swift"; sourceTree = "<group>"; };
 		DB0FED7022F22203006ADD3F /* RegisterFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterFlow.swift; sourceTree = "<group>"; };
+		DB10622F22FAA7F100A24E5F /* AccountController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountController.swift; sourceTree = "<group>"; };
+		DB10623122FAF18100A24E5F /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
+		DB10623322FAF1B600A24E5F /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
+		DB10623522FB17B800A24E5F /* MessageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageModel.swift; sourceTree = "<group>"; };
 		DB2D373422E7814D008AEAAE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		DB2D373722E78288008AEAAE /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		DB2D373C22E78318008AEAAE /* LoginPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresenter.swift; sourceTree = "<group>"; };
@@ -66,8 +94,10 @@
 		DB2D374522E78D53008AEAAE /* LoginViewController+Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LoginViewController+Configuration.swift"; sourceTree = "<group>"; };
 		DB2D374722E7913F008AEAAE /* LoginProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginProtocols.swift; sourceTree = "<group>"; };
 		DB2D374922E79527008AEAAE /* LoginFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginFlow.swift; sourceTree = "<group>"; };
-		DB34EE6722D6341100E140DC /* ChatsListViewController+TableViewDelegates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChatsListViewController+TableViewDelegates.swift"; sourceTree = "<group>"; };
-		DBC1256722D76D0B0019A1F8 /* ChatCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatCell.xib; sourceTree = "<group>"; };
+		DB34EE6722D6341100E140DC /* UsersListViewController+TableViewDelegates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UsersListViewController+TableViewDelegates.swift"; sourceTree = "<group>"; };
+		DBC1256722D76D0B0019A1F8 /* UserCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserCell.xib; sourceTree = "<group>"; };
+		DBFE4B9222FB4DDB0008305E /* ChatCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatCell.swift; sourceTree = "<group>"; };
+		DBFE4B9422FB4E390008305E /* ChatCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +118,99 @@
 				3CFC01C4197F5335E6A939ED /* Pods_FindYours.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DB002B3F22F9F0DA007ED1CF /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				DB002B4322FA05F2007ED1CF /* Onboarding */,
+				DB002B4422FA0629007ED1CF /* Logged In */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		DB002B4022F9FB2E007ED1CF /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				DB002B4122F9FB40007ED1CF /* DatabaseManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		DB002B4322FA05F2007ED1CF /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				DB0FED5D22F21F48006ADD3F /* Register */,
+				DB2D373622E78277008AEAAE /* Login */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		DB002B4422FA0629007ED1CF /* Logged In */ = {
+			isa = PBXGroup;
+			children = (
+				DB002B4522FA0652007ED1CF /* Tab bar */,
+				DB045BDD22CE1C270098811D /* Users List */,
+				DBFE4B9122FB4DB00008305E /* Chat */,
+			);
+			path = "Logged In";
+			sourceTree = "<group>";
+		};
+		DB002B4522FA0652007ED1CF /* Tab bar */ = {
+			isa = PBXGroup;
+			children = (
+				DB002B4622FA066B007ED1CF /* TabBarController.swift */,
+			);
+			path = "Tab bar";
+			sourceTree = "<group>";
+		};
+		DB002B4822FA06DB007ED1CF /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DB045BDB22CE1BD90098811D /* UsersListViewController.swift */,
+				DB34EE6722D6341100E140DC /* UsersListViewController+TableViewDelegates.swift */,
+				DB045BDE22CE1C4D0098811D /* UserCell.swift */,
+				DBC1256722D76D0B0019A1F8 /* UserCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		DB002B4922FA06EF007ED1CF /* Builder */ = {
+			isa = PBXGroup;
+			children = (
+				DB002B4A22FA070A007ED1CF /* UsersListBuilder.swift */,
+			);
+			path = Builder;
+			sourceTree = "<group>";
+		};
+		DB002B4C22FA0B81007ED1CF /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				DB04F3C022FC4D5700D37316 /* Workers */,
+				DB002B4D22FA0B8A007ED1CF /* Models */,
+				DB002B4022F9FB2E007ED1CF /* Managers */,
+				DB10622F22FAA7F100A24E5F /* AccountController.swift */,
+				DB0F496D22FD97770032B913 /* CommonError.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		DB002B4D22FA0B8A007ED1CF /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				DB002B4E22FA0B9C007ED1CF /* UserModel.swift */,
+				DB10623522FB17B800A24E5F /* MessageModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		DB002B5022FA1D68007ED1CF /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				DB002B5122FA1D88007ED1CF /* TableView+RegisterCell.swift */,
+				DB002B5322FA20BB007ED1CF /* UIViewController+ActivityIndicator.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		DB00659422CD2B620015C69A = {
@@ -111,9 +234,9 @@
 		DB00659F22CD2B620015C69A /* FindYours */ = {
 			isa = PBXGroup;
 			children = (
-				DB0FED5D22F21F48006ADD3F /* Register */,
-				DB2D373622E78277008AEAAE /* Login */,
-				DB045BDD22CE1C270098811D /* ChatsList */,
+				DB002B5022FA1D68007ED1CF /* Extensions */,
+				DB002B4C22FA0B81007ED1CF /* Data */,
+				DB002B3F22F9F0DA007ED1CF /* Modules */,
 				DB0065A022CD2B620015C69A /* AppDelegate.swift */,
 				DB0065A222CD2B620015C69A /* ViewController.swift */,
 				DB0065A422CD2B620015C69A /* Main.storyboard */,
@@ -125,15 +248,22 @@
 			path = FindYours;
 			sourceTree = "<group>";
 		};
-		DB045BDD22CE1C270098811D /* ChatsList */ = {
+		DB045BDD22CE1C270098811D /* Users List */ = {
 			isa = PBXGroup;
 			children = (
-				DB045BDB22CE1BD90098811D /* ChatsListViewController.swift */,
-				DB34EE6722D6341100E140DC /* ChatsListViewController+TableViewDelegates.swift */,
-				DB045BDE22CE1C4D0098811D /* ChatCell.swift */,
-				DBC1256722D76D0B0019A1F8 /* ChatCell.xib */,
+				DB002B4922FA06EF007ED1CF /* Builder */,
+				DB002B4822FA06DB007ED1CF /* View */,
 			);
-			path = ChatsList;
+			path = "Users List";
+			sourceTree = "<group>";
+		};
+		DB04F3C022FC4D5700D37316 /* Workers */ = {
+			isa = PBXGroup;
+			children = (
+				DB04F3C122FC4D6E00D37316 /* LoginUserWorker.swift */,
+				DB04F3C322FC505800D37316 /* RegisterUserWorker.swift */,
+			);
+			path = Workers;
 			sourceTree = "<group>";
 		};
 		DB0FED5D22F21F48006ADD3F /* Register */ = {
@@ -230,6 +360,17 @@
 			path = Builder;
 			sourceTree = "<group>";
 		};
+		DBFE4B9122FB4DB00008305E /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+				DB10623122FAF18100A24E5F /* ChatViewController.swift */,
+				DB10623322FAF1B600A24E5F /* ChatView.swift */,
+				DBFE4B9222FB4DDB0008305E /* ChatCell.swift */,
+				DBFE4B9422FB4E390008305E /* ChatCell.xib */,
+			);
+			path = Chat;
+			sourceTree = "<group>";
+		};
 		F92D494F4A399FB318568E05 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -300,7 +441,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				DB0065AB22CD2B640015C69A /* LaunchScreen.storyboard in Resources */,
-				DBC1256822D76D0B0019A1F8 /* ChatCell.xib in Resources */,
+				DBFE4B9522FB4E390008305E /* ChatCell.xib in Resources */,
+				DBC1256822D76D0B0019A1F8 /* UserCell.xib in Resources */,
 				DB2D373522E7814D008AEAAE /* GoogleService-Info.plist in Resources */,
 				DB0065A822CD2B640015C69A /* Assets.xcassets in Resources */,
 				DB0065A622CD2B620015C69A /* Main.storyboard in Resources */,
@@ -341,10 +483,13 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-FindYours/Pods-FindYours-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/BoringSSL-GRPC/openssl_grpc.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
-				"${BUILT_PRODUCTS_DIR}/JSQMessagesViewController/JSQMessagesViewController.framework",
-				"${BUILT_PRODUCTS_DIR}/JSQSystemSoundPlayer/JSQSystemSoundPlayer.framework",
+				"${BUILT_PRODUCTS_DIR}/NVActivityIndicatorView/NVActivityIndicatorView.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-C++/grpcpp.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
@@ -352,10 +497,13 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl_grpc.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JSQMessagesViewController.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JSQSystemSoundPlayer.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NVActivityIndicatorView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpcpp.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
@@ -371,27 +519,41 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DB045BDC22CE1BD90098811D /* ChatsListViewController.swift in Sources */,
-				DB045BDF22CE1C4D0098811D /* ChatCell.swift in Sources */,
+				DB045BDC22CE1BD90098811D /* UsersListViewController.swift in Sources */,
+				DB045BDF22CE1C4D0098811D /* UserCell.swift in Sources */,
 				DB0FED7122F22203006ADD3F /* RegisterFlow.swift in Sources */,
 				DB0FED6D22F22140006ADD3F /* RegisterProtocols.swift in Sources */,
 				DB0FED6322F21F88006ADD3F /* RegisterBuilder.swift in Sources */,
 				DB0FED6722F21FC0006ADD3F /* RegisterInteractor.swift in Sources */,
 				DB2D374622E78D53008AEAAE /* LoginViewController+Configuration.swift in Sources */,
+				DB10623022FAA7F100A24E5F /* AccountController.swift in Sources */,
 				DB2D373D22E78318008AEAAE /* LoginPresenter.swift in Sources */,
+				DBFE4B9322FB4DDB0008305E /* ChatCell.swift in Sources */,
+				DB002B4F22FA0B9C007ED1CF /* UserModel.swift in Sources */,
 				DB2D374122E78624008AEAAE /* LoginView.swift in Sources */,
 				DB0FED6F22F221B7006ADD3F /* RegisterViewController+Configuration.swift in Sources */,
+				DB002B4722FA066B007ED1CF /* TabBarController.swift in Sources */,
 				DB0065A322CD2B620015C69A /* ViewController.swift in Sources */,
+				DB0F496E22FD97770032B913 /* CommonError.swift in Sources */,
+				DB04F3C222FC4D6E00D37316 /* LoginUserWorker.swift in Sources */,
 				DB2D373F22E78332008AEAAE /* LoginInteractor.swift in Sources */,
+				DB002B5222FA1D88007ED1CF /* TableView+RegisterCell.swift in Sources */,
+				DB002B4222F9FB40007ED1CF /* DatabaseManager.swift in Sources */,
 				DB0FED6B22F2200B006ADD3F /* RegisterView.swift in Sources */,
 				DB2D373822E78288008AEAAE /* LoginViewController.swift in Sources */,
 				DB2D374322E786EB008AEAAE /* LoginBuilder.swift in Sources */,
 				DB0FED6522F21F9F006ADD3F /* RegisterPresenter.swift in Sources */,
 				DB2D374822E7913F008AEAAE /* LoginProtocols.swift in Sources */,
+				DB10623622FB17B800A24E5F /* MessageModel.swift in Sources */,
+				DB10623422FAF1B600A24E5F /* ChatView.swift in Sources */,
+				DB002B5422FA20BB007ED1CF /* UIViewController+ActivityIndicator.swift in Sources */,
 				DB0FED6922F21FF3006ADD3F /* RegisterViewController.swift in Sources */,
 				DB2D374A22E79527008AEAAE /* LoginFlow.swift in Sources */,
+				DB04F3C422FC505800D37316 /* RegisterUserWorker.swift in Sources */,
 				DB0065A122CD2B620015C69A /* AppDelegate.swift in Sources */,
-				DB34EE6822D6341100E140DC /* ChatsListViewController+TableViewDelegates.swift in Sources */,
+				DB34EE6822D6341100E140DC /* UsersListViewController+TableViewDelegates.swift in Sources */,
+				DB10623222FAF18100A24E5F /* ChatViewController.swift in Sources */,
+				DB002B4B22FA070A007ED1CF /* UsersListBuilder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
