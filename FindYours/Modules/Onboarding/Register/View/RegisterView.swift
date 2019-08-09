@@ -15,6 +15,9 @@ class RegisterView: UIView {
         textField.translatesAutoresizingMaskIntoConstraints = false
         textField.borderStyle = .line
         textField.placeholder = "Full name"
+        textField.enablesReturnKeyAutomatically = true
+        textField.returnKeyType = .next
+        textField.clearButtonMode = .whileEditing
         
         return textField
     }()
@@ -24,6 +27,10 @@ class RegisterView: UIView {
         textField.translatesAutoresizingMaskIntoConstraints = false
         textField.borderStyle = .line
         textField.placeholder = "Email"
+        textField.autocapitalizationType = .none
+        textField.enablesReturnKeyAutomatically = true
+        textField.returnKeyType = .next
+        textField.clearButtonMode = .whileEditing
         
         return textField
     }()
@@ -33,6 +40,11 @@ class RegisterView: UIView {
         textField.translatesAutoresizingMaskIntoConstraints = false
         textField.borderStyle = .line
         textField.placeholder = "Password"
+        textField.autocapitalizationType = .none
+        textField.isSecureTextEntry = true
+        textField.enablesReturnKeyAutomatically = true
+        textField.returnKeyType = .done
+        textField.clearButtonMode = .whileEditing
         
         return textField
     }()

@@ -18,7 +18,11 @@ extension LoginViewController {
     
     private func setupActions() {
         loginView.emailTextField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
+        loginView.emailTextField.addTarget(self, action: #selector(didTapReturnButton), for: .editingDidEndOnExit)
+        
         loginView.passwordTextField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
+        loginView.passwordTextField.addTarget(self, action: #selector(didTapReturnButton), for: .editingDidEndOnExit)
+        
         loginView.confirmButton.addTarget(self, action: #selector(didTapConfirmButton), for: .touchUpInside)
         loginView.registerButton.addTarget(self, action: #selector(didTapRegisterButton), for: .touchUpInside)
     }
@@ -36,5 +40,15 @@ extension LoginViewController {
     
     @objc private func didTapRegisterButton() {
         navigationController?.pushViewController(RegisterBuilder().build(), animated: true)
+    }
+    
+    @objc private func didTapReturnButton(textField: UITextField) {
+        switch textField {
+        case loginView.emailTextField:
+            loginView.passwordTextField.becomeFirstResponder()
+        case loginView.passwordTextField:
+            loginView.passwordTextField.resignFirstResponder()
+            didTapConfirmButton()
+        default: break }
     }
 }
