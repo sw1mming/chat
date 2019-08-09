@@ -13,6 +13,10 @@ class LoginInteractor {
     
     private let presenter: LoginPresenterProtocol
     
+    deinit {
+        print("!!! LoginInteractor deinit !!!")
+    }
+    
     init(presenter: LoginPresenterProtocol) {
         self.presenter = presenter
     }
@@ -23,7 +27,7 @@ extension LoginInteractor: LoginInteractorProtocol {
     func loginUser(request: Login.LoginUser.Request) {
         guard let email = request.email, let password = request.password else { return }
         LoginUserWorker().login(email: email, password: password) { [weak self] error in
-            let response = Login.LoginUser.Response(result: error == nil)
+            let response = Login.LoginUser.Response(error: CommonError(message: error?.localizedDescription))
             self?.presenter.presentLoggedInUser(response: response)
         }
     }

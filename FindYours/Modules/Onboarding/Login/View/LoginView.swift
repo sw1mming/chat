@@ -49,6 +49,10 @@ class LoginView: UIView {
         return button
     }()
     
+    deinit {
+        print("!!! LoginView deinit !!!")
+    }
+    
     init() {
         super.init(frame: .zero)
         backgroundColor = .white

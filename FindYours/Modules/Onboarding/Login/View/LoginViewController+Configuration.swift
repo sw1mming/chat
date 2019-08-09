@@ -11,6 +11,7 @@ import UIKit
 extension LoginViewController {
     
     func setupView() {
+        title = "Login"
         view = LoginView()
         setupActions()
     }
@@ -27,6 +28,7 @@ extension LoginViewController {
     }
     
     @objc private func didTapConfirmButton() {
+        startActivityIndicator()
         let request = Login.LoginUser.Request(email: loginView.emailTextField.text,
                                               password: loginView.passwordTextField.text)
         interactor.loginUser(request: request)

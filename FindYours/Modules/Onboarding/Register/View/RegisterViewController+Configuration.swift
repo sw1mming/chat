@@ -27,6 +27,7 @@ extension RegisterViewController {
     }
     
     @objc private func didTapConfirmButton() {
+        startActivityIndicator()
         let request = Register.RegisterUser.Request(fullName: registerView.fullNameTextField.text,
                                                     email: registerView.emailTextField.text,
                                                     password: registerView.passwordTextField.text)

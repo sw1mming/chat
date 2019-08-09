@@ -47,6 +47,10 @@ class RegisterView: UIView {
         return button
     }()
     
+    deinit {
+        print("!!! RegisterView deinit !!!")
+    }
+    
     init() {
         super.init(frame: .zero)
         print()

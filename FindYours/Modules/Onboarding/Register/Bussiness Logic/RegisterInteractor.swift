@@ -13,6 +13,10 @@ class RegisterInteractor {
     
     private let presenter: RegisterPresenterProtocol
     
+    deinit {
+        print("!!! RegisterInteractor deinit !!!")
+    }
+
     init(presenter: RegisterPresenterProtocol) {
         self.presenter = presenter
     }

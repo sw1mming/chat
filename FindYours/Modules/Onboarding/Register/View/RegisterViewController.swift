@@ -14,6 +14,10 @@ class RegisterViewController: UIViewController {
     
     let interactor: RegisterInteractorProtocol
     
+    deinit {
+        print("!!! RegisterViewController deinit !!!")
+    }
+    
     init(interactor: RegisterInteractorProtocol) {
         self.interactor = interactor
         super.init(nibName: nil, bundle: nil)
@@ -29,6 +33,7 @@ class RegisterViewController: UIViewController {
 extension RegisterViewController: RegisterViewProtocol {
     
     func displayRegisteredUser(viewModel: Register.RegisterUser.ViewModel) {
+        stopActivityIndicator()
         if let error = viewModel.error {
             let alert = UIAlertController(title: "User not created !!!", message: error.localizedDescription, preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: ":(", style: .default))

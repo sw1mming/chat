@@ -10,6 +10,10 @@ import Foundation
 
 class RegisterPresenter {
     
+    deinit {
+        print("!!! RegisterPresenter deinit !!!")
+    }
+    
     private weak var view: RegisterViewProtocol!
     func set(_ view: RegisterViewProtocol) { self.view = view }
 }

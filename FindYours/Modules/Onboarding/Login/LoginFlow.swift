@@ -17,11 +17,11 @@ enum Login {
         }
         
         struct Response {
-            let result: Bool
+            let error: CommonError?
         }
         
         struct ViewModel {
-            let result: Bool
+            let error: CommonError?
         }
     }
 }

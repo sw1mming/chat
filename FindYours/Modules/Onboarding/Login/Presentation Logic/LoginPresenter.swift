@@ -12,12 +12,16 @@ class LoginPresenter {
     
     private weak var view: LoginViewProtocol!
     func set(_ view: LoginViewProtocol) { self.view = view }
+    
+    deinit {
+        print("!!! LoginPresenter deinit !!!")
+    }
 }
 
 extension LoginPresenter: LoginPresenterProtocol {
     
     func presentLoggedInUser(response: Login.LoginUser.Response) {
-        let viewModel = Login.LoginUser.ViewModel(result: response.result)
+        let viewModel = Login.LoginUser.ViewModel(error: response.error)
         view.displayLoggedInUser(viewModel: viewModel)
     }
 }
