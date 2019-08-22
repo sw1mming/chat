@@ -65,7 +65,7 @@ extension ChatPresenter: ChatPresenterProtocol {
     }
     
     func presentSendMessage(response: Chat.SendMessage.Response) {
-        
+        view.displaySendMessage(viewModel: Chat.SendMessage.ViewModel(error: response.error))
     }
     
     func presentMessageUpdates(response: Chat.SubscribeMessageUpdates.Response) {

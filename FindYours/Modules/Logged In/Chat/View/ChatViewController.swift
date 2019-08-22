@@ -86,7 +86,13 @@ extension ChatViewController: ChatViewProtocol {
         }
     }
     
-    func displaySendMessage(viewModel: Chat.SendMessage.ViewModel) {}
+    func displaySendMessage(viewModel: Chat.SendMessage.ViewModel) {
+        if let error = viewModel.error {
+            let alert = UIAlertController(title: "Error !!!", message: "Can't send message. \(error.message)", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: .default))
+            present(alert, animated: true)
+        }
+    }
     
     func displayMessageUpdates(viewModel: Chat.SubscribeMessageUpdates.ViewModel) {
         stopStatusBarIndicator()

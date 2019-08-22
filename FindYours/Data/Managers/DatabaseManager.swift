@@ -14,19 +14,16 @@ final class DatabaseManager {
     static let instance = DatabaseManager()
     private init() {}
     
-    enum StaticKey {
+    enum DatabaseKey {
         static let users = "users"
         static let messages = "messages"
-        static let email = "email"
-        static let userId = "userId"
-        static let userFullName = "userFullName"
     }
     
     static let baseDatabase = Firestore.firestore()
     
-    static let usersCollection = DatabaseManager.baseDatabase.collection(StaticKey.users)
+    static let usersCollection = DatabaseManager.baseDatabase.collection(DatabaseKey.users)
     
-    static let messagesCollection = DatabaseManager.baseDatabase.collection(StaticKey.messages)
+    static let messagesCollection = DatabaseManager.baseDatabase.collection(DatabaseKey.messages)
     
     func send(message: MessageModel, completion: @escaping (Error?)->()) {
         guard let recipientId = message.recipientId else { return }
@@ -48,7 +45,6 @@ final class DatabaseManager {
                 snapshot?.documents.isEmpty == false,
                 let document = snapshot?.documentChanges.last?.document else { return }
             let dict = document.data()
-            print()
             let message = MessageModel(text: dict["messageText"] as? String,
                                        id: dict["messageId"] as? String,
                                        ownerId: dict["ownerId"] as? String,
@@ -66,6 +62,7 @@ final class DatabaseManager {
             guard let docs = snap?.documents else { return }
             var messages = [MessageModel]()
             for doc in docs {
+                // Codable
                 let message = MessageModel(text: doc.data()["messageText"] as? String,
                                            id: doc.data()["messageId"] as? String,
                                            ownerId: doc.data()["ownerId"] as? String,
@@ -79,11 +76,13 @@ final class DatabaseManager {
         }
     }
     
-    func save(user: DatabaseManager.UserDataModel, completion: @escaping (Error?)->()) {
-        let data = [StaticKey.email : user.email,
-                    StaticKey.userId : user.id,
-                    StaticKey.userFullName: user.fullName]
-        DatabaseManager.usersCollection.document(user.id).setData(data, completion: { error in
+    func save(user: UserModel, completion: @escaping (Error?)->()) {
+        let encodedData = try? JSONEncoder().encode(user)
+        guard let userId = user.id,
+            let json = encodedData?.toJSON()
+            else { completion(CommonError(message: "User doesn't have id.")); return }
+
+        DatabaseManager.usersCollection.document(userId).setData(json, completion: { error in
             completion(error)
         })
     }
@@ -94,30 +93,34 @@ final class DatabaseManager {
             
             var users: [UserModel] = []
             for doc in docs {
-                let userDictionary = doc.data()
-                let user = UserModel(id: userDictionary[StaticKey.userId] as? String,
-                                     email: userDictionary[StaticKey.email] as? String,
-                                     fullName: userDictionary[StaticKey.userFullName] as? String)
-                users.append(user)
+                guard let data = doc.data().toData() else { continue }
+                do {
+                    let user: UserModel = try JSONDecoder().decode(UserModel.self, from: data)
+                    users.append(user)
+                } catch {
+                    print("Can't parse user")
+                    continue
+                }
+                
             }
             completion(users)
         }
     }
     
     func getUser(id: String, completion: @escaping (UserModel?)->()) {
-        DatabaseManager.usersCollection.whereField(StaticKey.userId, isEqualTo: id).getDocuments { (snap, error) in
+        DatabaseManager.usersCollection.whereField("userId", isEqualTo: id).getDocuments { (snap, error) in
             guard
                 let userDictionary = snap?.documents.first?.data(),
-                let userId = userDictionary[StaticKey.userId] as? String,
-                let email = userDictionary[StaticKey.email] as? String,
-                let name = userDictionary[StaticKey.userFullName] as? String else {
+                let data = userDictionary.toData() else {
                     completion(nil)
                     return
             }
-            let user = UserModel(id: userId,
-                                 email: email,
-                                 fullName: name)
-            completion(user)
+            do {
+                let user: UserModel = try JSONDecoder().decode(UserModel.self, from: data)
+                completion(user)
+            } catch {
+                completion(nil)
+            }
         }
     }
     
@@ -132,12 +135,6 @@ final class DatabaseManager {
 }
 
 extension DatabaseManager {
-    
-    struct UserDataModel {
-        var fullName: String
-        var id: String
-        var email: String
-    }
     
     struct MessageDataModel {
         var text: String

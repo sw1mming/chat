@@ -17,9 +17,12 @@ class RegisterUserWorker {
                 completion(error!)
                 return
             }
-            let model = DatabaseManager.UserDataModel(fullName: fullName, id: id, email: email)
-            DatabaseManager.instance.save(user: model, completion: { error in
-                AccountController.instance.currentUser = UserModel(model: model)
+            
+            let user = UserModel(id: id, email: email, fullName: fullName)
+            DatabaseManager.instance.save(user: user, completion: { error in
+                if error != nil {
+                    AccountController.instance.currentUser = user                    
+                }
                 completion(error)
             })
         }

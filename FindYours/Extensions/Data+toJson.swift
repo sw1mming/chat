@@ -7,3 +7,15 @@
 //
 
 import Foundation
+
+extension Data {
+    
+    func toJSON() -> [String : Any]? {
+        do {
+            return try JSONSerialization.jsonObject(with: self, options: .mutableContainers) as? [String : Any]
+        } catch {
+            print("Can't parse data to json. Error: \(error.localizedDescription)")
+            return nil
+        }
+    }
+}

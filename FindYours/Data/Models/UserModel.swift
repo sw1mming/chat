@@ -8,8 +8,10 @@
 
 import Foundation
 
-class UserModel {
+class UserModel: Codable {
     
+    enum CodingKeys: String, CodingKey { case userId, email, userFullName }
+
     var id: String?
     var email: String?
     var fullName: String?
@@ -19,13 +21,18 @@ class UserModel {
         self.email = email
         self.fullName = fullName
     }
-}
-
-extension UserModel {
     
-    convenience init(model: DatabaseManager.UserDataModel) {
-        self.init(id: model.id,
-                  email: model.email,
-                  fullName: model.fullName)
+    required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.id = try container.decodeIfPresent(String.self, forKey: .userId)
+        self.email    = try container.decodeIfPresent(String.self, forKey: .email)
+        self.fullName    = try container.decodeIfPresent(String.self, forKey: .userFullName)
+    }
+
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(id, forKey: .userId)
+        try container.encode(email, forKey: .email)
+        try container.encode(fullName, forKey: .userFullName)
     }
 }
