@@ -29,4 +29,12 @@ extension UIViewController {
     func stopActivityIndicator() {
         NVActivityIndicatorPresenter.sharedInstance.stopAnimating()
     }
+    
+    func startStatusBarIndicator() {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+    }
+
+    func stopStatusBarIndicator() {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = false
+    }
 }

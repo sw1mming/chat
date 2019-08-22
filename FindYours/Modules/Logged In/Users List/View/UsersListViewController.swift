@@ -22,7 +22,8 @@ class UsersListViewController: UITableViewController {
         tableView.estimatedRowHeight = UITableView.automaticDimension
         tableView.rowHeight = UITableView.automaticDimension
         tableView.registerCell(ofType: UserCell.self)
-
+        tableView.tableFooterView = UIView()
+        
         startActivityIndicator()
         DatabaseManager.instance.getAllUsers { [weak self] users in
             self?.users = users
@@ -31,7 +32,6 @@ class UsersListViewController: UITableViewController {
             })
             self?.tableView.reloadData()
             self?.stopActivityIndicator()
-//            NVActivityIndicatorView(frame: self!.view.frame, type: .pacman, color: .purple, padding: 0).stopAnimating()
         }
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(logout))

@@ -27,7 +27,6 @@ extension UsersListViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         let user = users[indexPath.row]
-        
-        navigationController?.pushViewController(ChatViewController(recipientUser: user), animated: true)
+        navigationController?.pushViewController(ChatBuilder().build(user: user), animated: true)
     }
 }

@@ -5,11 +5,11 @@ target 'FindYours' do
   # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
   use_frameworks!
 
-pod 'Firebase/Core'
   pod 'Firebase/Core'
   pod 'Firebase/Firestore'
   pod 'Firebase/Auth'
   pod 'NVActivityIndicatorView'
+  pod 'UITextView+Placeholder'
   # Pods for FindYours
 
 end

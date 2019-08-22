@@ -18,10 +18,17 @@
 		DB0065A622CD2B620015C69A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB0065A422CD2B620015C69A /* Main.storyboard */; };
 		DB0065A822CD2B640015C69A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB0065A722CD2B640015C69A /* Assets.xcassets */; };
 		DB0065AB22CD2B640015C69A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB0065A922CD2B640015C69A /* LaunchScreen.storyboard */; };
+		DB032C65230307E90066A4AD /* ChatBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB032C64230307E90066A4AD /* ChatBuilder.swift */; };
 		DB045BDC22CE1BD90098811D /* UsersListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB045BDB22CE1BD90098811D /* UsersListViewController.swift */; };
 		DB045BDF22CE1C4D0098811D /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB045BDE22CE1C4D0098811D /* UserCell.swift */; };
 		DB04F3C222FC4D6E00D37316 /* LoginUserWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB04F3C122FC4D6E00D37316 /* LoginUserWorker.swift */; };
 		DB04F3C422FC505800D37316 /* RegisterUserWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB04F3C322FC505800D37316 /* RegisterUserWorker.swift */; };
+		DB0CC2CF2309A1FB000066E5 /* ChatPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0CC2CE2309A1FB000066E5 /* ChatPresenter.swift */; };
+		DB0CC2D12309A210000066E5 /* ChatInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0CC2D02309A210000066E5 /* ChatInteractor.swift */; };
+		DB0CC2D32309A256000066E5 /* ChatProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0CC2D22309A256000066E5 /* ChatProtocols.swift */; };
+		DB0CC2D52309A8B5000066E5 /* ChatFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0CC2D42309A8B5000066E5 /* ChatFlow.swift */; };
+		DB0CC2D72309B557000066E5 /* ChatTableDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0CC2D62309B557000066E5 /* ChatTableDataSource.swift */; };
+		DB0CC2D92309CF77000066E5 /* String+isEmptyOrWhitespace.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0CC2D82309CF77000066E5 /* String+isEmptyOrWhitespace.swift */; };
 		DB0F496E22FD97770032B913 /* CommonError.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0F496D22FD97770032B913 /* CommonError.swift */; };
 		DB0FED6322F21F88006ADD3F /* RegisterBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0FED6222F21F88006ADD3F /* RegisterBuilder.swift */; };
 		DB0FED6522F21F9F006ADD3F /* RegisterPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0FED6422F21F9F006ADD3F /* RegisterPresenter.swift */; };
@@ -48,6 +55,7 @@
 		DBC1256822D76D0B0019A1F8 /* UserCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DBC1256722D76D0B0019A1F8 /* UserCell.xib */; };
 		DBFE4B9322FB4DDB0008305E /* ChatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFE4B9222FB4DDB0008305E /* ChatCell.swift */; };
 		DBFE4B9522FB4E390008305E /* ChatCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DBFE4B9422FB4E390008305E /* ChatCell.xib */; };
+		DBFFE58323048160000F3B55 /* ChatViewController+Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFFE58223048160000F3B55 /* ChatViewController+Configuration.swift */; };
 		FB3CFD075968CD349FC7C52D /* Pods_FindYours.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CFC01C4197F5335E6A939ED /* Pods_FindYours.framework */; };
 /* End PBXBuildFile section */
 
@@ -68,10 +76,17 @@
 		DB0065A722CD2B640015C69A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DB0065AA22CD2B640015C69A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DB0065AC22CD2B640015C69A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DB032C64230307E90066A4AD /* ChatBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatBuilder.swift; sourceTree = "<group>"; };
 		DB045BDB22CE1BD90098811D /* UsersListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersListViewController.swift; sourceTree = "<group>"; };
 		DB045BDE22CE1C4D0098811D /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
 		DB04F3C122FC4D6E00D37316 /* LoginUserWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUserWorker.swift; sourceTree = "<group>"; };
 		DB04F3C322FC505800D37316 /* RegisterUserWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterUserWorker.swift; sourceTree = "<group>"; };
+		DB0CC2CE2309A1FB000066E5 /* ChatPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatPresenter.swift; sourceTree = "<group>"; };
+		DB0CC2D02309A210000066E5 /* ChatInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatInteractor.swift; sourceTree = "<group>"; };
+		DB0CC2D22309A256000066E5 /* ChatProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatProtocols.swift; sourceTree = "<group>"; };
+		DB0CC2D42309A8B5000066E5 /* ChatFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatFlow.swift; sourceTree = "<group>"; };
+		DB0CC2D62309B557000066E5 /* ChatTableDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatTableDataSource.swift; sourceTree = "<group>"; };
+		DB0CC2D82309CF77000066E5 /* String+isEmptyOrWhitespace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+isEmptyOrWhitespace.swift"; sourceTree = "<group>"; };
 		DB0F496D22FD97770032B913 /* CommonError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonError.swift; sourceTree = "<group>"; };
 		DB0FED6222F21F88006ADD3F /* RegisterBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterBuilder.swift; sourceTree = "<group>"; };
 		DB0FED6422F21F9F006ADD3F /* RegisterPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterPresenter.swift; sourceTree = "<group>"; };
@@ -98,6 +113,7 @@
 		DBC1256722D76D0B0019A1F8 /* UserCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserCell.xib; sourceTree = "<group>"; };
 		DBFE4B9222FB4DDB0008305E /* ChatCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatCell.swift; sourceTree = "<group>"; };
 		DBFE4B9422FB4E390008305E /* ChatCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatCell.xib; sourceTree = "<group>"; };
+		DBFFE58223048160000F3B55 /* ChatViewController+Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChatViewController+Configuration.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -209,6 +225,7 @@
 			children = (
 				DB002B5122FA1D88007ED1CF /* TableView+RegisterCell.swift */,
 				DB002B5322FA20BB007ED1CF /* UIViewController+ActivityIndicator.swift */,
+				DB0CC2D82309CF77000066E5 /* String+isEmptyOrWhitespace.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -363,12 +380,51 @@
 		DBFE4B9122FB4DB00008305E /* Chat */ = {
 			isa = PBXGroup;
 			children = (
+				DBFFE586230494F6000F3B55 /* View */,
+				DBFFE5882304951B000F3B55 /* Business Logic */,
+				DBFFE5892304952B000F3B55 /* Presentation Logic */,
+				DBFFE58723049510000F3B55 /* Builder */,
+				DB0CC2D22309A256000066E5 /* ChatProtocols.swift */,
+				DB0CC2D42309A8B5000066E5 /* ChatFlow.swift */,
+			);
+			path = Chat;
+			sourceTree = "<group>";
+		};
+		DBFFE586230494F6000F3B55 /* View */ = {
+			isa = PBXGroup;
+			children = (
 				DB10623122FAF18100A24E5F /* ChatViewController.swift */,
+				DB0CC2D62309B557000066E5 /* ChatTableDataSource.swift */,
+				DBFFE58223048160000F3B55 /* ChatViewController+Configuration.swift */,
 				DB10623322FAF1B600A24E5F /* ChatView.swift */,
 				DBFE4B9222FB4DDB0008305E /* ChatCell.swift */,
 				DBFE4B9422FB4E390008305E /* ChatCell.xib */,
 			);
-			path = Chat;
+			path = View;
+			sourceTree = "<group>";
+		};
+		DBFFE58723049510000F3B55 /* Builder */ = {
+			isa = PBXGroup;
+			children = (
+				DB032C64230307E90066A4AD /* ChatBuilder.swift */,
+			);
+			path = Builder;
+			sourceTree = "<group>";
+		};
+		DBFFE5882304951B000F3B55 /* Business Logic */ = {
+			isa = PBXGroup;
+			children = (
+				DB0CC2D02309A210000066E5 /* ChatInteractor.swift */,
+			);
+			path = "Business Logic";
+			sourceTree = "<group>";
+		};
+		DBFFE5892304952B000F3B55 /* Presentation Logic */ = {
+			isa = PBXGroup;
+			children = (
+				DB0CC2CE2309A1FB000066E5 /* ChatPresenter.swift */,
+			);
+			path = "Presentation Logic";
 			sourceTree = "<group>";
 		};
 		F92D494F4A399FB318568E05 /* Pods */ = {
@@ -488,6 +544,7 @@
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/NVActivityIndicatorView/NVActivityIndicatorView.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/UITextView+Placeholder/UITextView_Placeholder.framework",
 				"${BUILT_PRODUCTS_DIR}/gRPC-C++/grpcpp.framework",
 				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
@@ -502,6 +559,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NVActivityIndicatorView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/UITextView_Placeholder.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpcpp.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
@@ -521,6 +579,7 @@
 			files = (
 				DB045BDC22CE1BD90098811D /* UsersListViewController.swift in Sources */,
 				DB045BDF22CE1C4D0098811D /* UserCell.swift in Sources */,
+				DB0CC2D12309A210000066E5 /* ChatInteractor.swift in Sources */,
 				DB0FED7122F22203006ADD3F /* RegisterFlow.swift in Sources */,
 				DB0FED6D22F22140006ADD3F /* RegisterProtocols.swift in Sources */,
 				DB0FED6322F21F88006ADD3F /* RegisterBuilder.swift in Sources */,
@@ -528,6 +587,7 @@
 				DB2D374622E78D53008AEAAE /* LoginViewController+Configuration.swift in Sources */,
 				DB10623022FAA7F100A24E5F /* AccountController.swift in Sources */,
 				DB2D373D22E78318008AEAAE /* LoginPresenter.swift in Sources */,
+				DB0CC2D32309A256000066E5 /* ChatProtocols.swift in Sources */,
 				DBFE4B9322FB4DDB0008305E /* ChatCell.swift in Sources */,
 				DB002B4F22FA0B9C007ED1CF /* UserModel.swift in Sources */,
 				DB2D374122E78624008AEAAE /* LoginView.swift in Sources */,
@@ -541,10 +601,16 @@
 				DB002B4222F9FB40007ED1CF /* DatabaseManager.swift in Sources */,
 				DB0FED6B22F2200B006ADD3F /* RegisterView.swift in Sources */,
 				DB2D373822E78288008AEAAE /* LoginViewController.swift in Sources */,
+				DB0CC2D92309CF77000066E5 /* String+isEmptyOrWhitespace.swift in Sources */,
+				DBFFE58323048160000F3B55 /* ChatViewController+Configuration.swift in Sources */,
 				DB2D374322E786EB008AEAAE /* LoginBuilder.swift in Sources */,
+				DB032C65230307E90066A4AD /* ChatBuilder.swift in Sources */,
 				DB0FED6522F21F9F006ADD3F /* RegisterPresenter.swift in Sources */,
+				DB0CC2CF2309A1FB000066E5 /* ChatPresenter.swift in Sources */,
 				DB2D374822E7913F008AEAAE /* LoginProtocols.swift in Sources */,
+				DB0CC2D52309A8B5000066E5 /* ChatFlow.swift in Sources */,
 				DB10623622FB17B800A24E5F /* MessageModel.swift in Sources */,
+				DB0CC2D72309B557000066E5 /* ChatTableDataSource.swift in Sources */,
 				DB10623422FAF1B600A24E5F /* ChatView.swift in Sources */,
 				DB002B5422FA20BB007ED1CF /* UIViewController+ActivityIndicator.swift in Sources */,
 				DB0FED6922F21FF3006ADD3F /* RegisterViewController.swift in Sources */,

@@ -28,40 +28,41 @@ final class DatabaseManager {
     
     static let messagesCollection = DatabaseManager.baseDatabase.collection(StaticKey.messages)
     
-    func send(message: MessageModel) {
+    func send(message: MessageModel, completion: @escaping (Error?)->()) {
         guard let recipientId = message.recipientId else { return }
         let id = DatabaseManager.messagesCollection.document().documentID
-        let data = ["messageText" : message.text! + " " + id, "messageId" : id, "ownerId" : message.ownerId, "recipientId" : recipientId]
-        // .whereField("ownerId", isEqualTo: message.recipientId!)
-//        DatabaseManager.messagesCollection.addSnapshotListener { (snap, error) in
-//            print()
-//        }
-//        DatabaseManager.messagesCollection.document(recipientId).collection(StaticKey.messages).document().addSnapshotListener { (snapshot, error) in
-//            print()
-//        }
-        
-        DatabaseManager.messagesCollection.document(recipientId).collection(StaticKey.messages).document().setData(data) { error in
-            print()
+        let data = ["createdTimestamp" : message.createdTimestamp,
+                    "messageText" : message.text!,
+                    "messageId" : id,
+                    "ownerId" : message.ownerId,
+                    "recipientId" : recipientId] as [String : Any?]
+
+        DatabaseManager.messagesCollection.document().setData(data as [String : Any]) { error in
+            completion(error)
         }
     }
     
-    func subscribeMessagesUpdatesFor(userId: String, completion: @escaping (MessageModel?)->()) {
-        DatabaseManager.messagesCollection.document(userId).collection(DatabaseManager.StaticKey.messages).addSnapshotListener { (snapshot, error) in
+    func subscribeMessagesUpdatesFor(userId: String, completion: @escaping (MessageModel?, Error?)->()) {
+        DatabaseManager.messagesCollection.addSnapshotListener { (snapshot, error) in
+            guard
+                snapshot?.documents.isEmpty == false,
+                let document = snapshot?.documentChanges.last?.document else { return }
+            let dict = document.data()
             print()
-            let dict = snapshot?.documentChanges.first?.document.data()
-            let message = MessageModel(text: dict?["messageText"] as? String,
-                                       id: dict?["messageId"] as? String,
-                                       ownerId: dict?["ownerId"] as? String,
-                                       recipientId: dict?["recipientId"] as? String)
+            let message = MessageModel(text: dict["messageText"] as? String,
+                                       id: dict["messageId"] as? String,
+                                       ownerId: dict["ownerId"] as? String,
+                                       recipientId: dict["recipientId"] as? String)
             if message.id == nil {
-            } else {
-                completion(message)
+                completion(message, CommonError(message: "New message can't be parsed."))
+            } else if message.shouldShowWith(currentUserId: AccountController.instance.currentUser?.id, recipientId: userId) {
+                completion(message, nil)
             }
         }
     }
     
-    func loadAllMessagesFor(userId: String, completion: @escaping ([MessageModel])->()) {
-        DatabaseManager.messagesCollection.document(userId).collection(DatabaseManager.StaticKey.messages).getDocuments { (snap, error) in
+    func loadAllMessagesFor(userId: String, completion: @escaping ([MessageModel], Error?)->()) {
+        DatabaseManager.messagesCollection.order(by: "createdTimestamp", descending: false).getDocuments { (snap, error) in
             guard let docs = snap?.documents else { return }
             var messages = [MessageModel]()
             for doc in docs {
@@ -70,10 +71,11 @@ final class DatabaseManager {
                                            ownerId: doc.data()["ownerId"] as? String,
                                            recipientId: doc.data()["recipientId"] as? String)
 
-                messages.append(message)
+                if message.shouldShowWith(currentUserId: AccountController.instance.currentUser?.id, recipientId: userId) {
+                    messages.append(message)
+                }
             }
-            
-            completion(messages)
+            completion(messages, error)
         }
     }
     
