@@ -29,15 +29,10 @@ final class DatabaseManager {
     private let baseStorage = Storage.storage()
     
     func send(message: MessageModel, completion: @escaping (Error?)->()) {
-        guard let recipientId = message.recipientId else { return }
         let id = DatabaseManager.messagesCollection.document().documentID
-        let data = ["createdTimestamp" : message.createdTimestamp,
-                    "messageText" : message.text!,
-                    "messageId" : id,
-                    "ownerId" : message.ownerId,
-                    "recipientId" : recipientId] as [String : Any?]
-
-        DatabaseManager.messagesCollection.document().setData(data as [String : Any], completion: completion)
+        message.id = id
+        guard let encodedData = try? JSONEncoder().encode(message), let data = encodedData.toJSON() else { return }
+        DatabaseManager.messagesCollection.document().setData(data, completion: completion)
     }
     
     func subscribeMessagesUpdatesFor(userId: String, completion: @escaping (MessageModel?, Error?)->()) {
@@ -92,7 +87,7 @@ final class DatabaseManager {
         }
 
         if let avatarData = avatarImageData {
-            saveImage(data: avatarData) { urlString, error in
+            saveImage(data: avatarData, userId: user.id ?? "") { urlString, error in
                 guard let url = urlString else { completion(user, error); return }
                 saveUser(avatarUrlString: url)
             }
@@ -101,8 +96,8 @@ final class DatabaseManager {
         }
     }
     
-    func saveImage(data: Data, completion: @escaping (String?, Error?)->()) {
-        let userImagesRef = baseStorage.reference().child("user_avatar.jpg")
+    func saveImage(data: Data, userId: String, completion: @escaping (String?, Error?)->()) {
+        let userImagesRef = baseStorage.reference().child("\(userId)_user_avatar.jpg")
         userImagesRef.putData(data, metadata: nil, completion: { metaData, error in
             guard error == nil else { completion(nil, error); return }
             userImagesRef.downloadURL(completion: { url, error in completion(url?.absoluteString, error) })
@@ -142,10 +137,6 @@ final class DatabaseManager {
                 completion(nil)
             }
         }
-    }
-    
-    func saveImage() {
-        
     }
     
     func logout(completion: (Bool)->()) {

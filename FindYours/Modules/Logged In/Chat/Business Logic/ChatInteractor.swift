@@ -51,7 +51,7 @@ extension ChatInteractor: ChatInteractorProtocol {
     func subscribeOnMessageUpdates(request: Chat.SubscribeMessageUpdates.Request) {
         DatabaseManager.instance.subscribeMessagesUpdatesFor(userId: recipientUser.id!) { [weak self] msg, error in
             guard let `self` = self else { return }
-            if !self.messages.isEmpty, let message = msg, self.messages.contains(where: { $0.id == message.id }) == false {
+            if let message = msg, self.messages.contains(where: { $0.id == message.id }) == false {
                 self.messages.append(message)
                 let lastIndexPath = IndexPath(row: self.messages.count - 1, section: 0)
                 let response = Chat.SubscribeMessageUpdates.Response(recipientUserName: self.recipientUser.fullName ?? "",

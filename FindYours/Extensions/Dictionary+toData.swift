@@ -20,15 +20,3 @@ extension Dictionary {
         }
     }
 }
-
-extension Data {
-    
-    func toJSON() -> Any? {
-        do {
-            return try JSONSerialization.jsonObject(with: self, options: .mutableContainers)
-        } catch {
-            print("Can't parse data to json. Error: \(error.localizedDescription)")
-            return nil
-        }
-    }
-}
