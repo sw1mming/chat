@@ -9,7 +9,16 @@
 import UIKit
 
 class RegisterView: UIView {
-
+    
+    let avatarImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.isUserInteractionEnabled = true
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.backgroundColor = .lightGray
+        
+        return imageView
+    }()
+    
     let fullNameTextField: UITextField = {
         let textField = UITextField()
         textField.translatesAutoresizingMaskIntoConstraints = false
@@ -68,33 +77,41 @@ class RegisterView: UIView {
         print()
         backgroundColor = .white
         
+        addSubview(avatarImageView)
         addSubview(fullNameTextField)
-        fullNameTextField.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
-        fullNameTextField.topAnchor.constraint(equalTo: topAnchor, constant: 200).isActive = true
-        fullNameTextField.heightAnchor.constraint(equalToConstant: 50).isActive = true
-        fullNameTextField.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20).isActive = true
-        fullNameTextField.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20).isActive = true
-        
         addSubview(emailTextField)
-        emailTextField.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
-        emailTextField.topAnchor.constraint(equalTo: fullNameTextField.bottomAnchor, constant: 10).isActive = true
-        emailTextField.heightAnchor.constraint(equalToConstant: 50).isActive = true
-        emailTextField.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20).isActive = true
-        emailTextField.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20).isActive = true
-        
         addSubview(passwordTextField)
-        passwordTextField.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
-        passwordTextField.topAnchor.constraint(equalTo: emailTextField.bottomAnchor, constant: 10).isActive = true
-        passwordTextField.heightAnchor.constraint(equalToConstant: 50).isActive = true
-        passwordTextField.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20).isActive = true
-        passwordTextField.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20).isActive = true
-        
         addSubview(confirmButton)
-        confirmButton.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: 20).isActive = true
-        confirmButton.centerXAnchor.constraint(equalTo: passwordTextField.centerXAnchor).isActive = true
-        confirmButton.heightAnchor.constraint(equalToConstant: 40).isActive = true
-        confirmButton.widthAnchor.constraint(equalToConstant: 100).isActive = true
         
+        NSLayoutConstraint.activate([
+            avatarImageView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 10),
+            avatarImageView.centerXAnchor.constraint(equalTo: centerXAnchor),
+            avatarImageView.heightAnchor.constraint(equalToConstant: 150),
+            avatarImageView.widthAnchor.constraint(equalToConstant: 150),
+
+            fullNameTextField.centerXAnchor.constraint(equalTo: centerXAnchor),
+            fullNameTextField.topAnchor.constraint(equalTo: avatarImageView.bottomAnchor, constant: 10),
+            fullNameTextField.heightAnchor.constraint(equalToConstant: 50),
+            fullNameTextField.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
+            fullNameTextField.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
+            
+            emailTextField.centerXAnchor.constraint(equalTo: centerXAnchor),
+            emailTextField.topAnchor.constraint(equalTo: fullNameTextField.bottomAnchor, constant: 10),
+            emailTextField.heightAnchor.constraint(equalToConstant: 50),
+            emailTextField.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
+            emailTextField.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
+            
+            passwordTextField.centerXAnchor.constraint(equalTo: centerXAnchor),
+            passwordTextField.topAnchor.constraint(equalTo: emailTextField.bottomAnchor, constant: 10),
+            passwordTextField.heightAnchor.constraint(equalToConstant: 50),
+            passwordTextField.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
+            passwordTextField.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
+            
+            confirmButton.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: 20),
+            confirmButton.centerXAnchor.constraint(equalTo: passwordTextField.centerXAnchor),
+            confirmButton.heightAnchor.constraint(equalToConstant: 40),
+            confirmButton.widthAnchor.constraint(equalToConstant: 100)
+        ])
         setEnableConfirmButton()
     }
     

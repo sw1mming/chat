@@ -68,7 +68,7 @@ class LoginView: UIView {
         
         addSubview(emailTextField)
         emailTextField.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
-        emailTextField.topAnchor.constraint(equalTo: topAnchor, constant: 200).isActive = true
+        emailTextField.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 170).isActive = true
         emailTextField.heightAnchor.constraint(equalToConstant: 50).isActive = true
         emailTextField.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20).isActive = true
         emailTextField.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20).isActive = true

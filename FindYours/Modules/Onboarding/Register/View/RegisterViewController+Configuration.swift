@@ -17,6 +17,8 @@ extension RegisterViewController {
     }
     
     private func setupActions() {
+        registerView.avatarImageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(showImagePickerActionSheet)))
+        
         registerView.fullNameTextField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
         registerView.fullNameTextField.addTarget(self, action: #selector(didTapReturnButton), for: .editingDidEndOnExit)
         

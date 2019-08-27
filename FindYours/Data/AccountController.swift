@@ -13,7 +13,7 @@ final class AccountController {
     static let instance = AccountController()
     private init() {
         guard let id = userId, let userFullName = userFullName, let email = userEmail else { return }
-        currentUser = UserModel(id: id, email: email, fullName: userFullName)
+        currentUser = UserModel(id: id, email: email, fullName: userFullName, avatarUrlString: userAvatarString)
     }
     
     private let userDefaults = UserDefaults.standard
@@ -23,6 +23,17 @@ final class AccountController {
             userId = currentUser?.id
             userFullName = currentUser?.fullName
             userEmail = currentUser?.email
+            userAvatarString = currentUser?.avatarUrlString
+        }
+    }
+    
+    private var userAvatarString: String? {
+        get {
+            return userDefaults.string(forKey: Key.userAvatarString)
+        }
+        
+        set {
+            userDefaults.set(newValue, forKey: Key.userAvatarString)
         }
     }
     
@@ -35,7 +46,7 @@ final class AccountController {
             userDefaults.set(newValue, forKey: Key.userFullName)
         }
     }
-    
+
     private var userId: String? {
         get {
             return userDefaults.string(forKey: Key.userId)
@@ -59,6 +70,7 @@ final class AccountController {
 
 extension AccountController {
     private enum Key {
+        static let userAvatarString = "user_avatar_string"
         static let userFullName = "user_full_name"
         static let userId = "user_id"
         static let userEmail = "user_email"

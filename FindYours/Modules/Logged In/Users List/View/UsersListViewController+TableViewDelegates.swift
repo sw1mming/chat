@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AlamofireImage
 
 extension UsersListViewController {
     
@@ -16,6 +17,11 @@ extension UsersListViewController {
         // TODO: Update identifier
         let cell = tableView.dequeueReusableCell(withIdentifier: "UserCell") as! UserCell
         cell.userNameLabel.text = user.email
+        
+        if let url = user.avatarUrl {
+            cell.userImageView.backgroundColor = .clear
+            cell.userImageView.af_setImage(withURL: url)
+        }
         
         return cell
     }

@@ -19,6 +19,7 @@
 		DB032C65230307E90066A4AD /* ChatBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB032C64230307E90066A4AD /* ChatBuilder.swift */; };
 		DB03D2E0230F0C5400A92B9C /* Dictionary+toData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB03D2DF230F0C5400A92B9C /* Dictionary+toData.swift */; };
 		DB03D2E2230F0F2400A92B9C /* Data+toJson.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB03D2E1230F0F2400A92B9C /* Data+toJson.swift */; };
+		DB03D2E4230F273200A92B9C /* RegisterViewController+ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB03D2E3230F273200A92B9C /* RegisterViewController+ImagePicker.swift */; };
 		DB045BDC22CE1BD90098811D /* UsersListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB045BDB22CE1BD90098811D /* UsersListViewController.swift */; };
 		DB045BDF22CE1C4D0098811D /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB045BDE22CE1C4D0098811D /* UserCell.swift */; };
 		DB04F3C222FC4D6E00D37316 /* LoginUserWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB04F3C122FC4D6E00D37316 /* LoginUserWorker.swift */; };
@@ -77,6 +78,7 @@
 		DB032C64230307E90066A4AD /* ChatBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatBuilder.swift; sourceTree = "<group>"; };
 		DB03D2DF230F0C5400A92B9C /* Dictionary+toData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dictionary+toData.swift"; sourceTree = "<group>"; };
 		DB03D2E1230F0F2400A92B9C /* Data+toJson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+toJson.swift"; sourceTree = "<group>"; };
+		DB03D2E3230F273200A92B9C /* RegisterViewController+ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RegisterViewController+ImagePicker.swift"; sourceTree = "<group>"; };
 		DB045BDB22CE1BD90098811D /* UsersListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersListViewController.swift; sourceTree = "<group>"; };
 		DB045BDE22CE1C4D0098811D /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
 		DB04F3C122FC4D6E00D37316 /* LoginUserWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUserWorker.swift; sourceTree = "<group>"; };
@@ -342,6 +344,7 @@
 				DB0FED6822F21FF3006ADD3F /* RegisterViewController.swift */,
 				DB0FED6A22F2200B006ADD3F /* RegisterView.swift */,
 				DB0FED6E22F221B7006ADD3F /* RegisterViewController+Configuration.swift */,
+				DB03D2E3230F273200A92B9C /* RegisterViewController+ImagePicker.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -554,6 +557,8 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-FindYours/Pods-FindYours-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/AlamofireImage/AlamofireImage.framework",
 				"${BUILT_PRODUCTS_DIR}/BoringSSL-GRPC/openssl_grpc.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
@@ -569,6 +574,8 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl_grpc.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
@@ -598,6 +605,7 @@
 				DB0FED7122F22203006ADD3F /* RegisterFlow.swift in Sources */,
 				DB03D2E0230F0C5400A92B9C /* Dictionary+toData.swift in Sources */,
 				DB0FED6D22F22140006ADD3F /* RegisterProtocols.swift in Sources */,
+				DB03D2E4230F273200A92B9C /* RegisterViewController+ImagePicker.swift in Sources */,
 				DB0FED6322F21F88006ADD3F /* RegisterBuilder.swift in Sources */,
 				DB0FED6722F21FC0006ADD3F /* RegisterInteractor.swift in Sources */,
 				DB2D374622E78D53008AEAAE /* LoginViewController+Configuration.swift in Sources */,

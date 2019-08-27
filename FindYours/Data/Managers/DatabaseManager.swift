@@ -8,6 +8,7 @@
 
 import Foundation
 import Firebase
+import FirebaseStorage
 
 final class DatabaseManager {
     
@@ -25,6 +26,8 @@ final class DatabaseManager {
     
     static let messagesCollection = DatabaseManager.baseDatabase.collection(DatabaseKey.messages)
     
+    private let baseStorage = Storage.storage()
+    
     func send(message: MessageModel, completion: @escaping (Error?)->()) {
         guard let recipientId = message.recipientId else { return }
         let id = DatabaseManager.messagesCollection.document().documentID
@@ -34,25 +37,24 @@ final class DatabaseManager {
                     "ownerId" : message.ownerId,
                     "recipientId" : recipientId] as [String : Any?]
 
-        DatabaseManager.messagesCollection.document().setData(data as [String : Any]) { error in
-            completion(error)
-        }
+        DatabaseManager.messagesCollection.document().setData(data as [String : Any], completion: completion)
     }
     
     func subscribeMessagesUpdatesFor(userId: String, completion: @escaping (MessageModel?, Error?)->()) {
         DatabaseManager.messagesCollection.addSnapshotListener { (snapshot, error) in
             guard
                 snapshot?.documents.isEmpty == false,
-                let document = snapshot?.documentChanges.last?.document else { return }
-            let dict = document.data()
-            let message = MessageModel(text: dict["messageText"] as? String,
-                                       id: dict["messageId"] as? String,
-                                       ownerId: dict["ownerId"] as? String,
-                                       recipientId: dict["recipientId"] as? String)
-            if message.id == nil {
-                completion(message, CommonError(message: "New message can't be parsed."))
-            } else if message.shouldShowWith(currentUserId: AccountController.instance.currentUser?.id, recipientId: userId) {
-                completion(message, nil)
+                let document = snapshot?.documentChanges.last?.document,
+                let data = document.data().toData() else { return }
+            do {
+                let message: MessageModel = try JSONDecoder().decode(MessageModel.self, from: data)
+                if message.id == nil {
+                    completion(nil, CommonError(message: "New message can't be parsed."))
+                } else if message.shouldShowWith(currentUserId: AccountController.instance.currentUser?.id, recipientId: userId) {
+                    completion(message, nil)
+                }
+            } catch {
+                print("Can't parse subscribed message")
             }
         }
     }
@@ -62,35 +64,54 @@ final class DatabaseManager {
             guard let docs = snap?.documents else { return }
             var messages = [MessageModel]()
             for doc in docs {
-                // Codable
-                let message = MessageModel(text: doc.data()["messageText"] as? String,
-                                           id: doc.data()["messageId"] as? String,
-                                           ownerId: doc.data()["ownerId"] as? String,
-                                           recipientId: doc.data()["recipientId"] as? String)
-
-                if message.shouldShowWith(currentUserId: AccountController.instance.currentUser?.id, recipientId: userId) {
-                    messages.append(message)
+                guard let data = doc.data().toData() else { continue }
+                do {
+                    let message: MessageModel = try JSONDecoder().decode(MessageModel.self, from: data)
+                    if message.shouldShowWith(currentUserId: AccountController.instance.currentUser?.id, recipientId: userId) {
+                        messages.append(message)
+                    }
+                } catch {
+                    print("Can't parse message for list")
+                    continue
                 }
             }
             completion(messages, error)
         }
     }
     
-    func save(user: UserModel, completion: @escaping (Error?)->()) {
-        let encodedData = try? JSONEncoder().encode(user)
-        guard let userId = user.id,
-            let json = encodedData?.toJSON()
-            else { completion(CommonError(message: "User doesn't have id.")); return }
+    func save(user: UserModel, avatarImageData: Data?, completion: @escaping (UserModel, Error?)->()) {
+        func saveUser(avatarUrlString: String? = nil) {
+            user.avatarUrlString = avatarUrlString
+            let encodedData = try? JSONEncoder().encode(user)
+            guard let userId = user.id,
+                let json = encodedData?.toJSON()
+                else { completion(user, CommonError(message: "User doesn't have id.")); return }
+            DatabaseManager.usersCollection.document(userId).setData(json, completion: { error in
+                completion(user, nil)
+            })
+        }
 
-        DatabaseManager.usersCollection.document(userId).setData(json, completion: { error in
-            completion(error)
+        if let avatarData = avatarImageData {
+            saveImage(data: avatarData) { urlString, error in
+                guard let url = urlString else { completion(user, error); return }
+                saveUser(avatarUrlString: url)
+            }
+        } else {
+            saveUser()
+        }
+    }
+    
+    func saveImage(data: Data, completion: @escaping (String?, Error?)->()) {
+        let userImagesRef = baseStorage.reference().child("user_avatar.jpg")
+        userImagesRef.putData(data, metadata: nil, completion: { metaData, error in
+            guard error == nil else { completion(nil, error); return }
+            userImagesRef.downloadURL(completion: { url, error in completion(url?.absoluteString, error) })
         })
     }
     
     func getAllUsers(completion: @escaping ([UserModel])->()) {
         DatabaseManager.usersCollection.getDocuments { (snap, error) in
             guard let docs = snap?.documents else { return }
-            
             var users: [UserModel] = []
             for doc in docs {
                 guard let data = doc.data().toData() else { continue }
@@ -101,7 +122,6 @@ final class DatabaseManager {
                     print("Can't parse user")
                     continue
                 }
-                
             }
             completion(users)
         }
@@ -122,6 +142,10 @@ final class DatabaseManager {
                 completion(nil)
             }
         }
+    }
+    
+    func saveImage() {
+        
     }
     
     func logout(completion: (Bool)->()) {

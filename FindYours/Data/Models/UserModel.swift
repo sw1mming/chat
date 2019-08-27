@@ -10,23 +10,27 @@ import Foundation
 
 class UserModel: Codable {
     
-    enum CodingKeys: String, CodingKey { case userId, email, userFullName }
+    enum CodingKeys: String, CodingKey { case userId, email, userFullName, avatarUrlString }
 
     var id: String?
     var email: String?
     var fullName: String?
-
-    init(id: String?, email: String?, fullName: String?) {
+    var avatarUrlString: String?
+    var avatarUrl: URL? { return avatarUrlString != nil ? URL(string: avatarUrlString!) : nil }
+    
+    init(id: String?, email: String?, fullName: String?, avatarUrlString: String?) {
         self.id = id
         self.email = email
         self.fullName = fullName
+        self.avatarUrlString = avatarUrlString
     }
     
     required init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self)
-        self.id = try container.decodeIfPresent(String.self, forKey: .userId)
-        self.email    = try container.decodeIfPresent(String.self, forKey: .email)
-        self.fullName    = try container.decodeIfPresent(String.self, forKey: .userFullName)
+        let container   = try decoder.container(keyedBy: CodingKeys.self)
+        id              = try container.decodeIfPresent(String.self, forKey: .userId)
+        email           = try container.decodeIfPresent(String.self, forKey: .email)
+        fullName        = try container.decodeIfPresent(String.self, forKey: .userFullName)
+        avatarUrlString = try container.decodeIfPresent(String.self, forKey: .avatarUrlString)
     }
 
     func encode(to encoder: Encoder) throws {
@@ -34,5 +38,6 @@ class UserModel: Codable {
         try container.encode(id, forKey: .userId)
         try container.encode(email, forKey: .email)
         try container.encode(fullName, forKey: .userFullName)
+        try container.encode(avatarUrlString, forKey: .avatarUrlString)
     }
 }

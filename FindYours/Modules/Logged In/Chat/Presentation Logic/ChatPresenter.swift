@@ -40,7 +40,9 @@ class ChatPresenter {
                          currentUserName: String) -> Chat.MessagePresentationModel {
         let userName = message.ownerId == currentUserId ? currentUserName : recipientUserName
         
-        let time = formater.string(from: Date(timeIntervalSince1970: TimeInterval(truncating: message.createdTimestamp ?? 0)))
+        let time = message.createdTimestamp == nil
+            ? ""
+            : formater.string(from: Date(timeIntervalSince1970: TimeInterval(exactly: message.createdTimestamp!) ?? 0))
         let viewModel = Chat.MessagePresentationModel(userName: userName,
                                                       text: message.text!,
                                                       time: time)

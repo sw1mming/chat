@@ -76,6 +76,7 @@ extension ChatViewController: ChatViewProtocol {
         stopActivityIndicator()
         switch viewModel.result {
         case let .result(messages, scrollIndexPath):
+            guard !messages.isEmpty else { return }
             tableDataSource.presentationModels = messages
             chatView.tableView.reloadData()
             scrollToBottom(at: scrollIndexPath)

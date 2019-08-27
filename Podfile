@@ -7,9 +7,11 @@ target 'FindYours' do
 
   pod 'Firebase/Core'
   pod 'Firebase/Firestore'
+  pod 'Firebase/Storage'
   pod 'Firebase/Auth'
   pod 'NVActivityIndicatorView'
   pod 'UITextView+Placeholder'
+  pod 'AlamofireImage', '~> 3.5'
   # Pods for FindYours
 
 end

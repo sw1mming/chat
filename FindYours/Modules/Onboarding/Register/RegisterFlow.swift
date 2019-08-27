@@ -6,15 +6,29 @@
 //  Copyright © 2019 FindYours. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 enum Register {
     
     enum RegisterUser {
         struct Request {
-            var fullName: String?
-            var email: String?
-            var password: String?
+            let fullName: String?
+            let email: String?
+            let password: String?
+        }
+        
+        struct Response {
+            let error: CommonError?
+        }
+        
+        struct ViewModel {
+            let error: CommonError?
+        }
+    }
+    
+    enum ChooseAvatar {
+        struct Request {
+            let image: UIImage?
         }
         
         struct Response {

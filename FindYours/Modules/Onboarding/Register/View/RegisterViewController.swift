@@ -47,4 +47,6 @@ extension RegisterViewController: RegisterViewProtocol {
             registerView.clearFields()
         }
     }
+    
+    func displayChoosesAvatar(request: Register.ChooseAvatar.ViewModel) {}
 }

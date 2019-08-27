@@ -41,6 +41,7 @@ extension ChatInteractor: ChatInteractorProtocol {
         let message = MessageModel(text: request.messageText,
                                    ownerId: AccountController.instance.currentUser?.id ?? "",
                                    recipientId: recipientUser.id)
+        message.createdTimestamp = Double(Date().timeIntervalSince1970)
         DatabaseManager.instance.send(message: message, completion: { [weak self] error in
             let response = Chat.SendMessage.Response(error: CommonError(message: error?.localizedDescription))
             self?.presenter.presentSendMessage(response: response)

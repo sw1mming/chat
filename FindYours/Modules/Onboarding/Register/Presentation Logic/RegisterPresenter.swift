@@ -19,9 +19,13 @@ class RegisterPresenter {
 }
 
 extension RegisterPresenter: RegisterPresenterProtocol {
-    
+        
     func presentRegisteredUser(response: Register.RegisterUser.Response) {
         let viewModel = Register.RegisterUser.ViewModel(error: response.error)
         view.displayRegisteredUser(viewModel: viewModel)
+    }
+
+    func presentChoosedAvatar(request: Register.ChooseAvatar.Response) {
+        view.displayChoosesAvatar(request: Register.ChooseAvatar.ViewModel(error: request.error))
     }
 }
