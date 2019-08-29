@@ -12,7 +12,7 @@ class ChatBuilder {
     
     func build(user: UserModel) -> UIViewController {
         let presenter = ChatPresenter()
-        let interactor = ChatInteractor(presenter: presenter, recipientUser: user)
+        let interactor = ChatInteractor(presenter: presenter, recipientUser: user, messagesManager: .instance)
         let view = ChatViewController(interactor: interactor, titleText: user.fullName ?? "")
         presenter.set(view)
         

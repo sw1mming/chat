@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		DB002B4222F9FB40007ED1CF /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB002B4122F9FB40007ED1CF /* DatabaseManager.swift */; };
+		DB002B4222F9FB40007ED1CF /* MessagesDatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB002B4122F9FB40007ED1CF /* MessagesDatabaseManager.swift */; };
 		DB002B4722FA066B007ED1CF /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB002B4622FA066B007ED1CF /* TabBarController.swift */; };
 		DB002B4B22FA070A007ED1CF /* UsersListBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB002B4A22FA070A007ED1CF /* UsersListBuilder.swift */; };
 		DB002B4F22FA0B9C007ED1CF /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB002B4E22FA0B9C007ED1CF /* UserModel.swift */; };
@@ -54,6 +54,8 @@
 		DB2D374A22E79527008AEAAE /* LoginFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2D374922E79527008AEAAE /* LoginFlow.swift */; };
 		DB34EE6822D6341100E140DC /* UsersListViewController+TableViewDelegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB34EE6722D6341100E140DC /* UsersListViewController+TableViewDelegates.swift */; };
 		DBC1256822D76D0B0019A1F8 /* UserCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DBC1256722D76D0B0019A1F8 /* UserCell.xib */; };
+		DBFE487F2315BAA600E8F94C /* BaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFE487E2315BAA600E8F94C /* BaseManager.swift */; };
+		DBFE48812315BB9600E8F94C /* UsersDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFE48802315BB9600E8F94C /* UsersDataManager.swift */; };
 		DBFE4B9322FB4DDB0008305E /* ChatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFE4B9222FB4DDB0008305E /* ChatCell.swift */; };
 		DBFE4B9522FB4E390008305E /* ChatCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DBFE4B9422FB4E390008305E /* ChatCell.xib */; };
 		DBFFE58323048160000F3B55 /* ChatViewController+Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFFE58223048160000F3B55 /* ChatViewController+Configuration.swift */; };
@@ -64,7 +66,7 @@
 		3CFC01C4197F5335E6A939ED /* Pods_FindYours.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FindYours.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F3478AFD4AF8405B91D83F9 /* Pods-FindYours.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FindYours.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FindYours/Pods-FindYours.debug.xcconfig"; sourceTree = "<group>"; };
 		60FB78443D97820FCB538FA4 /* Pods-FindYours.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FindYours.release.xcconfig"; path = "Pods/Target Support Files/Pods-FindYours/Pods-FindYours.release.xcconfig"; sourceTree = "<group>"; };
-		DB002B4122F9FB40007ED1CF /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
+		DB002B4122F9FB40007ED1CF /* MessagesDatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesDatabaseManager.swift; sourceTree = "<group>"; };
 		DB002B4622FA066B007ED1CF /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		DB002B4A22FA070A007ED1CF /* UsersListBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersListBuilder.swift; sourceTree = "<group>"; };
 		DB002B4E22FA0B9C007ED1CF /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
@@ -113,6 +115,8 @@
 		DB2D374922E79527008AEAAE /* LoginFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginFlow.swift; sourceTree = "<group>"; };
 		DB34EE6722D6341100E140DC /* UsersListViewController+TableViewDelegates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UsersListViewController+TableViewDelegates.swift"; sourceTree = "<group>"; };
 		DBC1256722D76D0B0019A1F8 /* UserCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserCell.xib; sourceTree = "<group>"; };
+		DBFE487E2315BAA600E8F94C /* BaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseManager.swift; sourceTree = "<group>"; };
+		DBFE48802315BB9600E8F94C /* UsersDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersDataManager.swift; sourceTree = "<group>"; };
 		DBFE4B9222FB4DDB0008305E /* ChatCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatCell.swift; sourceTree = "<group>"; };
 		DBFE4B9422FB4E390008305E /* ChatCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatCell.xib; sourceTree = "<group>"; };
 		DBFFE58223048160000F3B55 /* ChatViewController+Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChatViewController+Configuration.swift"; sourceTree = "<group>"; };
@@ -150,7 +154,9 @@
 		DB002B4022F9FB2E007ED1CF /* Managers */ = {
 			isa = PBXGroup;
 			children = (
-				DB002B4122F9FB40007ED1CF /* DatabaseManager.swift */,
+				DB002B4122F9FB40007ED1CF /* MessagesDatabaseManager.swift */,
+				DBFE48802315BB9600E8F94C /* UsersDataManager.swift */,
+				DBFE487E2315BAA600E8F94C /* BaseManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -286,8 +292,10 @@
 		DB045BDD22CE1C270098811D /* Users List */ = {
 			isa = PBXGroup;
 			children = (
-				DB002B4922FA06EF007ED1CF /* Builder */,
 				DB002B4822FA06DB007ED1CF /* View */,
+				DBFE48832315BF6F00E8F94C /* Business Logic */,
+				DBFE48822315BF5700E8F94C /* Presentation Logic */,
+				DB002B4922FA06EF007ED1CF /* Builder */,
 			);
 			path = "Users List";
 			sourceTree = "<group>";
@@ -394,6 +402,20 @@
 				DB2D374222E786EB008AEAAE /* LoginBuilder.swift */,
 			);
 			path = Builder;
+			sourceTree = "<group>";
+		};
+		DBFE48822315BF5700E8F94C /* Presentation Logic */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Presentation Logic";
+			sourceTree = "<group>";
+		};
+		DBFE48832315BF6F00E8F94C /* Business Logic */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Business Logic";
 			sourceTree = "<group>";
 		};
 		DBFE4B9122FB4DB00008305E /* Chat */ = {
@@ -603,6 +625,7 @@
 				DB045BDF22CE1C4D0098811D /* UserCell.swift in Sources */,
 				DB0CC2D12309A210000066E5 /* ChatInteractor.swift in Sources */,
 				DB0FED7122F22203006ADD3F /* RegisterFlow.swift in Sources */,
+				DBFE487F2315BAA600E8F94C /* BaseManager.swift in Sources */,
 				DB03D2E0230F0C5400A92B9C /* Dictionary+toData.swift in Sources */,
 				DB0FED6D22F22140006ADD3F /* RegisterProtocols.swift in Sources */,
 				DB03D2E4230F273200A92B9C /* RegisterViewController+ImagePicker.swift in Sources */,
@@ -622,8 +645,9 @@
 				DB04F3C222FC4D6E00D37316 /* LoginUserWorker.swift in Sources */,
 				DB2D373F22E78332008AEAAE /* LoginInteractor.swift in Sources */,
 				DB002B5222FA1D88007ED1CF /* TableView+RegisterCell.swift in Sources */,
-				DB002B4222F9FB40007ED1CF /* DatabaseManager.swift in Sources */,
+				DB002B4222F9FB40007ED1CF /* MessagesDatabaseManager.swift in Sources */,
 				DB0FED6B22F2200B006ADD3F /* RegisterView.swift in Sources */,
+				DBFE48812315BB9600E8F94C /* UsersDataManager.swift in Sources */,
 				DB2D373822E78288008AEAAE /* LoginViewController.swift in Sources */,
 				DB0CC2D92309CF77000066E5 /* String+isEmptyOrWhitespace.swift in Sources */,
 				DBFFE58323048160000F3B55 /* ChatViewController+Configuration.swift in Sources */,

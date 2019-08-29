@@ -25,7 +25,7 @@ class UsersListViewController: UITableViewController {
         tableView.tableFooterView = UIView()
         
         startActivityIndicator()
-        DatabaseManager.instance.getAllUsers { [weak self] users in
+        UsersDataManager.instance.getAllUsers { [weak self] users in
             self?.users = users
             self?.users.removeAll(where: { user -> Bool in
                 user.id == AccountController.instance.currentUser?.id
@@ -38,7 +38,7 @@ class UsersListViewController: UITableViewController {
     }
     
     @objc func logout() {
-        DatabaseManager.instance.logout { isCompleted in
+        UsersDataManager.instance.logout { isCompleted in
             if isCompleted {
                 appDelegate.window?.rootViewController = LoginBuilder().build()
             }

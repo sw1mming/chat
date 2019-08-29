@@ -21,7 +21,7 @@ class LoginUserWorker {
         }
         
         func getUserFromDatabase(userId: String) {
-            DatabaseManager.instance.getUser(id: userId, completion: { user in
+            UsersDataManager.instance.getUser(id: userId, completion: { user in
                 if let user = user {
                     AccountController.instance.currentUser = user
                     completion(nil)

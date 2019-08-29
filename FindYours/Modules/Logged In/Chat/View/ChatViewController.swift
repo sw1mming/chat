@@ -127,7 +127,9 @@ extension ChatViewController {
         
         UIView.animate(withDuration: 0, delay: 0, options: .curveEaseOut, animations: {
             self.chatView.layoutIfNeeded()
-            self.chatView.tableView.setContentOffset(contentOffset, animated: true)
+            if self.tableDataSource.presentationModels.count > self.chatView.tableView.visibleCells.count {
+                self.chatView.tableView.setContentOffset(contentOffset, animated: true)                
+            }
         })
     }
     

@@ -19,7 +19,7 @@ class RegisterUserWorker {
             }
             
             let user = UserModel(id: id, email: email, fullName: fullName, avatarUrlString: nil)
-            DatabaseManager.instance.save(user: user, avatarImageData: avatarImageData, completion: { savedUser, error in
+            UsersDataManager.instance.save(user: user, avatarImageData: avatarImageData, completion: { savedUser, error in
                 if error == nil {
                     AccountController.instance.currentUser = savedUser
                 }
